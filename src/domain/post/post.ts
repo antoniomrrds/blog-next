@@ -59,17 +59,27 @@ export type PostCover = PostCoverFormat & {
   };
 };
 
-export type PostAtribute = {
+export type PostAttribute = {
   content: string;
   created_at: string;
   updated_at: string;
   publishedAt: string;
   slug: string;
   title: string;
+  cover: DataCover;
+};
+
+export type DataCover = {
+  id: PostID;
+  data: CoverAttributes;
+};
+
+export type CoverAttributes = {
+  attributes: PostCover;
 };
 
 export type PostData = {
-  attributes: PostAtribute;
+  attributes: PostAttribute;
   id: PostID;
   title: string;
   content: string;
@@ -80,5 +90,4 @@ export type PostData = {
   updated_by: PostCreatedBy;
   created_at: string;
   updated_at: string;
-  cover: PostCover;
 };
