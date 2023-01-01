@@ -5,7 +5,6 @@ export const Container = styled.main`
     max-width: 96rem;
     font-size: ${theme.font.sizes.medium};
     margin: 0 auto;
-    text-align: center;
-    padding: : ${theme.spacings.medium};
+    padding: ${theme.spacings.medium};
   `}
 `;
