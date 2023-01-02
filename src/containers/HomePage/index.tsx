@@ -1,15 +1,16 @@
 import { Header } from '../../components/Header';
 import { MainContainer } from '../../components/MainContainer';
-import { PostCard } from '../../components/PostCard';
-import { PostData } from '../../domain/post/post';
 import { Container } from './styles';
+import { PostCard } from '../../components/PostCard';
+import { Footer } from '../../components/Footer';
+
+import { PostData } from '../../domain/post/post';
 
 export type HomePageProps = {
   posts: PostData[];
 };
 
 export const HomePage = ({ posts }: HomePageProps) => {
-  console.log(posts);
   return (
     <>
       <Header />
@@ -27,6 +28,7 @@ export const HomePage = ({ posts }: HomePageProps) => {
           ))}
         </Container>
       </MainContainer>
+      <Footer />
     </>
   );
 };
