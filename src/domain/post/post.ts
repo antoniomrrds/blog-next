@@ -1,21 +1,27 @@
 export type PostID = number;
 
 export type PostAuthor = {
-  id: PostID;
-  name: string;
-  created_by: number;
-  updated_by: number;
-  created_at: string;
-  updated_at: string;
+  data: {
+    id: PostID;
+    attributes: {
+      name: string;
+      created_at: string;
+      updated_at: string;
+      publishedAt: string;
+    };
+  };
 };
 
 export type PostCategory = {
-  id: PostID;
-  name: string;
-  created_by: number;
-  updated_by: number;
-  created_at: string;
-  updated_at: string;
+  data: {
+    id: PostID;
+    attributes: {
+      name: string;
+      created_at: string;
+      updated_at: string;
+      publishedAt: string;
+    };
+  };
 };
 
 export type PostCreatedBy = {
@@ -59,35 +65,25 @@ export type PostCover = PostCoverFormat & {
   };
 };
 
-export type PostAttribute = {
-  content: string;
-  created_at: string;
-  updated_at: string;
-  publishedAt: string;
-  slug: string;
-  title: string;
-  cover: DataCover;
-};
-
 export type DataCover = {
   id: PostID;
-  data: CoverAttributes;
-};
-
-export type CoverAttributes = {
-  attributes: PostCover;
+  data: {
+    attributes: PostCover;
+  };
 };
 
 export type PostData = {
-  attributes: PostAttribute;
   id: PostID;
-  title: string;
+  attributes: {
+    title: string;
+    content: string;
+    slug: string;
+    author: PostAuthor;
+    category: PostCategory;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    cover: DataCover;
+  };
   content: string;
-  slug: string;
-  author: PostAuthor;
-  category: PostCategory;
-  created_by: PostCreatedBy;
-  updated_by: PostCreatedBy;
-  created_at: string;
-  updated_at: string;
 };
