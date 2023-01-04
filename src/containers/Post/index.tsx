@@ -7,13 +7,13 @@ import { Footer } from '../../components/Footer/index';
 
 import { PostData } from '../../domain/post/post';
 import { PostContainer } from '../../components/PostContainer';
+import { Comments } from '../../Comments';
 
 export type PostProps = {
   post: PostData;
 };
 
 export const Post = ({ post }: PostProps) => {
-  console.log(post.attributes.createdAt);
   return (
     <>
       <Header />
@@ -29,6 +29,7 @@ export const Post = ({ post }: PostProps) => {
           date={post.attributes.createdAt}
         />
         <PostContainer content={post.content} />
+        <Comments title={post.attributes.title} slug={post.attributes.slug} />
       </MainContainer>
       <Footer />
     </>
