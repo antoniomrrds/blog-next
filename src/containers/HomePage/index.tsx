@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { Header } from '../../components/Header';
 import { MainContainer } from '../../components/MainContainer';
-import { Container } from './styles';
+import { Category, Container } from './styles';
 import { PostCard } from '../../components/PostCard';
 import { Footer } from '../../components/Footer';
 
@@ -11,9 +11,10 @@ import { SITE_NAME } from '../../config/app-config';
 
 export type HomePageProps = {
   posts: PostData[];
+  category?: string;
 };
 
-export const HomePage = ({ posts }: HomePageProps) => {
+export const HomePage = ({ posts, category }: HomePageProps) => {
   return (
     <>
       <Head>
@@ -21,6 +22,7 @@ export const HomePage = ({ posts }: HomePageProps) => {
         <meta name="description" content="this is my tech blog" />
       </Head>
       <Header />
+      {category && <Category>Category: {category}</Category>}
       <MainContainer>
         <Container>
           {posts.map((post) => (
