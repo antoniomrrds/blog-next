@@ -13,7 +13,7 @@ export const Category = styled.div`
   padding: ${({ theme }) => theme.spacings.medium} 0;
 `;
 
-export const AllPostsLinks = styled.a`
+export const AllPostsLinks = styled.span`
   display: block;
   text-align: center;
   margin: ${({ theme }) => theme.spacings.large} 0;

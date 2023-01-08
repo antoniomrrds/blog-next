@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { Header } from '../../components/Header';
 import { MainContainer } from '../../components/MainContainer';
@@ -10,7 +11,6 @@ import { SITE_NAME } from '../../config/app-config';
 import { PostData } from '../../domain/post/post';
 import { PaginationData } from '../../domain/post/pagination';
 import { Pagination } from '../../components/Pagination';
-import Link from 'next/link';
 
 export type HomePageProps = {
   posts: PostData[];
@@ -21,11 +21,11 @@ export type HomePageProps = {
 export const HomePage = ({ posts, category, pagination }: HomePageProps) => {
   const categoryTitle = category ? `${category} - ${SITE_NAME}` : SITE_NAME;
   const paginationTitle =
-    (pagination?.nextPage && ` - Page ${pagination?.nextPage - 1}`) || '';
+    pagination?.nextPage && ` - Page ${pagination?.nextPage - 1}`;
   return (
     <>
       <Head>
-        <title>{`${categoryTitle} ${paginationTitle}`}</title>
+        <title>{`${categoryTitle}${paginationTitle || ''}`}</title>
         <meta name="description" content="this is my tech blog" />
       </Head>
       <Header />
