@@ -19,9 +19,9 @@ export default function Page({ posts, category, pagination }: PageProps) {
 
   if (router.isFallback) return <div>Loading ...</div>;
 
-  if (!posts?.length) return <div>Page not Found ...</div>;
+  if (!posts.length) return <div>Page not Found ...</div>;
 
-  return <HomePage posts={posts} />;
+  return <HomePage posts={posts} category={category} pagination={pagination} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const page = Number(ctx.params.param[0]);
   const category = ctx.params.param[1] || '';
-  const postPerPage = 3;
+  const postPerPage = 1;
   const startFrom = (page - 1) * postPerPage;
   const nextPage = page + 1;
   const previousPage = page - 1;

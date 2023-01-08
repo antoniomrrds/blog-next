@@ -71,6 +71,9 @@ export type DataCover = {
     attributes: PostCover;
   };
 };
+export type PaginationData = {
+  pagination: { start: string; limit: string; total: string };
+};
 
 export type PostData = {
   id: PostID;
